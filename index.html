@@ -1,10 +1,318 @@
 <!DOCTYPE html>
-<html lang="en" style="width:100%; height:100%;">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Ethan's Resume</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ethan Hopkins - Software Engineer</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #34495e;
+            --accent-color: #2980b9;
+            --light-bg: #f8f9fa;
+            --text-color: #333333;
+            --border-color: #e0e0e0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #f4f6f8;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        header {
+            text-align: center;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 25px;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: var(--primary-color);
+            margin: 0 0 5px 0;
+        }
+
+        .title {
+            font-size: 1.25em;
+            color: var(--accent-color);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            font-size: 0.95em;
+            color: var(--secondary-color);
+        }
+
+        .contact-info a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        section {
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            font-size: 1.3em;
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        p {
+            margin: 0 0 15px 0;
+        }
+
+        .job, .project, .education-item {
+            margin-bottom: 25px;
+        }
+
+        .job-header, .project-header, .education-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            margin-bottom: 5px;
+        }
+
+        .job-title, .project-title, .school-name {
+            font-weight: bold;
+            color: var(--primary-color);
+            font-size: 1.05em;
+        }
+
+        .company, .degree {
+            color: var(--secondary-color);
+            font-style: italic;
+        }
+
+        .date {
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        ul {
+            margin: 5px 0 15px 0;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 6px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 12px;
+        }
+
+        .skill-category {
+            background: var(--light-bg);
+            padding: 12px 15px;
+            border-radius: 6px;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .skill-category strong {
+            color: var(--primary-color);
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .certificates-list {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .cert-item {
+            background: var(--light-bg);
+            padding: 10px 15px;
+            border-radius: 6px;
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .cert-item strong {
+            color: var(--primary-color);
+            display: block;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+            .job-header, .project-header, .education-header {
+                flex-direction: column;
+            }
+            .date {
+                margin-top: 2px;
+            }
+        }
+    </style>
 </head>
-<body style="width:100%; height:100%; margin:0;">
-    <iframe src="Ethan%20Hopkins%20-%20Software%20Engineer.pdf" style="width:100%; height:100%; border:none;"></iframe>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Ethan Hopkins[cite: 1]</h1>
+        <div class="title">Software Engineer[cite: 1]</div>
+        <div class="contact-info">
+            <span>ethanthopkins@gmail.com[cite: 1]</span>
+            <span>(307) 228-0234[cite: 1]</span>
+            <span>Glendale, New York[cite: 1]</span>
+            <span><a href="https://linkedin.com/in/ethanthopkins" target="_blank">linkedin.com/in/ethanthopkins[cite: 1]</a></span>
+            <span><a href="https://github.com/ethanthopkins" target="_blank">github.com/ethanthopkins[cite: 1]</a></span>
+        </div>
+    </header>
+
+    <section>
+        <p>Analytical Software Engineer specializing in high-availability architecture and legacy modernization. Combines a B.S. in Computer Science with 10 years of high-stakes operational leadership to build scalable, mission-critical systems that drive business impact.[cite: 1]</p>
+    </section>
+
+    <section>
+        <h2>Work Experience[cite: 1]</h2>
+        
+        <div class="job">
+            <div class="job-header">
+                <div>
+                    <span class="job-title">Software Engineer</span> <span class="company">| wyoming.com | Riverton, WY[cite: 1]</span>
+                </div>
+                <div class="date">Dec 2025-Jun 2026[cite: 1]</div>
+            </div>
+            <ul>
+                <li>Engineering mission-critical, zero-downtime infrastructure and modernizing legacy ISP systems through high-availability database clustering and Al-accelerated development with an emphasis on accuracy and safely working in production systems.[cite: 1]</li>
+                <li>Improved company's CRM transition by transforming insecure Perl scripts into a secure Python/Django API framework, while ensuring zero-downtime for crucial 911/VoIP services during database migrations. Utilized Prometheus for realtime metrics tracking.[cite: 1]</li>
+                <li>Orchestrated and performed database administration for a MariaDB high-availability cluster using primary-to-primary ring replication to eliminate single points of failure; architected an enterprise Grafana/Loki/Ansible observability stack integrated with LDAP for secure, role-based monitoring.[cite: 1]</li>
+                <li>Unified and streamlined internal tools into a Django/Debian ecosystem using Celery and Redis, enhancing maintainability, security documentation, and deployment reliability across multiple teams. Enhanced front-end design to further user experience.[cite: 1]</li>
+                <li>Authors enterprise version control policies, supervises Al-assisted coding workflows, and mentors the engineering team on SQL optimization while translating complex requirements from Sales and Accounting into actionable system designs.[cite: 1]</li>
+                <li>Developed and executed machine learning experiments and prototyping to validate hypotheses and drive innovation in software development processes.[cite: 1]</li>
+                <li>Integrated Automated Testing into the CI/CD pipeline to ensure continuous delivery of high-quality software via GitHub Actions.[cite: 1]</li>
+            </ul>
+        </div>
+
+        <div class="job">
+            <div class="job-header">
+                <div>
+                    <span class="job-title">Retail Manager</span> <span class="company">| Walmart Wyoming (Multiple Cities)[cite: 1]</span>
+                </div>
+                <div class="date">Oct 2017-Nov 2025[cite: 1]</div>
+            </div>
+            <ul>
+                <li>Directed $130M+ annual customer-facing operations and 350+ associates while engineering regional automation tools and secure digital asset ledgers to drive $300k+ in business impact. Developed high-impact communication skills[cite: 1]</li>
+                <li>Managed a $130M revenue facility and 350+ staff, yielding a $300k+ yearly impact via strategic revenue operations, cross-functional collaboration, and crisis leadership, ensuring operational stability and morale.[cite: 1]</li>
+                <li>Assisting marketing efforts by executing social media driven outreach and store initiatives.[cite: 1]</li>
+                <li>Engineered and deployed regional VBA automation tools and a custom MS Access security database while spearheading technical training for 300+ staff to bridge the gap between corporate technical requirements and ground-level execution. Uses Salesforce for data collection.[cite: 1]</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h2>Projects[cite: 1]</h2>
+        <div class="project">
+            <div class="project-header">
+                <span class="project-title">Predicting Uber Ride Cancellations[cite: 1]</span>
+                <span class="date">Present[cite: 1]</span>
+            </div>
+            <ul>
+                <li>Engineered a predictive classification model using Python and scikit-learn to identify ride cancellation risks, implementing hyperparameter tuning and data preprocessing to optimize precision for real-time revenue reclamation.[cite: 1]</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h2>Core Skills[cite: 1]</h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <strong>Languages[cite: 1]</strong>
+                Python, Java, SQL, Ansible, HTML, CSS, JavaScript, VBA, GML[cite: 1]
+            </div>
+            <div class="skill-category">
+                <strong>Databases[cite: 1]</strong>
+                MySQL, MariaDB, PostgreSQL, Microsoft Access[cite: 1]
+            </div>
+            <div class="skill-category">
+                <strong>Frameworks[cite: 1]</strong>
+                Django, Spring Boot, Angular, Node.js, Celery, PyTorch, Scikit-learn, NumPy, Pandas, Matplotlib[cite: 1]
+            </div>
+            <div class="skill-category">
+                <strong>AI Coding[cite: 1]</strong>
+                GitHub Copilot, Gemini, Claude Code[cite: 1]
+            </div>
+            <div class="skill-category">
+                <strong>Tools & DevOps[cite: 1]</strong>
+                Git, GitHub, GitLab, Docker, VS Code, IntelliJ IDEA, Unity, GameMaker Studio, Google Apps, Prometheus, Agile[cite: 1]
+            </div>
+            <div class="skill-category">
+                <strong>Soft Skills[cite: 1]</strong>
+                Resourceful, Effective communication[cite: 1]
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Education[cite: 1]</h2>
+        
+        <div class="education-item">
+            <div class="education-header">
+                <div>
+                    <span class="school-name">Western Governors University[cite: 1]</span>
+                </div>
+                <div class="date">Sep 2025[cite: 1]</div>
+            </div>
+            <div class="degree">Bachelor of Science Computer Science[cite: 1]</div>
+            <p style="margin-top: 5px; font-size: 0.95em; color: var(--secondary-color);"><strong>Minor:</strong> Data Structures and Algorithms, Advanced Database Management, Artificial Intelligence, Mathematics[cite: 1]</p>
+        </div>
+
+        <div class="education-item">
+            <div class="education-header">
+                <div>
+                    <span class="school-name">Purdue University Global[cite: 1]</span>
+                </div>
+                <div class="date">May 2021[cite: 1]</div>
+            </div>
+            <div class="degree">Bachelor of Science Business Administration[cite: 1]</div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Certificates[cite: 1]</h2>
+        <div class="certificates-list">
+            <div class="cert-item">
+                <strong>Linux Essentials[cite: 1]</strong>
+                <span>LPI[cite: 1]</span>
+            </div>
+            <div class="cert-item">
+                <strong>ITIL Foundation 4[cite: 1]</strong>
+            </div>
+        </div>
+    </section>
+</div>
+
 </body>
 </html>
