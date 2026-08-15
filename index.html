@@ -1,316 +1,463 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ethan Hopkins - Software Engineer</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#0284c7',
+                            600: '#0369a1',
+                            700: '#075985',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
     <style>
-        :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #34495e;
-            --accent-color: #2980b9;
-            --light-bg: #f8f9fa;
-            --text-color: #333333;
-            --border-color: #e0e0e0;
-        }
-
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: #f4f6f8;
-            margin: 0;
-            padding: 20px;
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
         }
 
-        .container {
-            max-width: 850px;
-            margin: 0 auto;
-            background: #ffffff;
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-        }
-
-        header {
-            text-align: center;
-            border-bottom: 2px solid var(--border-color);
-            padding-bottom: 25px;
-            margin-bottom: 30px;
-        }
-
-        h1 {
-            font-size: 2.5em;
-            color: var(--primary-color);
-            margin: 0 0 5px 0;
-        }
-
-        .title {
-            font-size: 1.25em;
-            color: var(--accent-color);
-            font-weight: 600;
-            margin-bottom: 15px;
-        }
-
-        .contact-info {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-            font-size: 0.95em;
-            color: var(--secondary-color);
-        }
-
-        .contact-info a {
-            color: var(--accent-color);
-            text-decoration: none;
-        }
-
-        .contact-info a:hover {
-            text-decoration: underline;
-        }
-
-        section {
-            margin-bottom: 30px;
-        }
-
-        h2 {
-            font-size: 1.3em;
-            color: var(--primary-color);
-            border-bottom: 2px solid var(--accent-color);
-            padding-bottom: 5px;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        p {
-            margin: 0 0 15px 0;
-        }
-
-        .job, .proof, .education-item {
-            margin-bottom: 25px;
-        }
-
-        .job-header, .proof-header, .education-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            flex-wrap: wrap;
-            margin-bottom: 5px;
-        }
-
-        .job-title, .proof-title, .school-name {
-            font-weight: bold;
-            color: var(--primary-color);
-            font-size: 1.05em;
-        }
-
-        .company, .degree {
-            color: var(--secondary-color);
-            font-style: italic;
-        }
-
-        .date {
-            color: #666;
-            font-size: 0.9em;
-        }
-
-        ul {
-            margin: 5px 0 15px 0;
-            padding-left: 20px;
-        }
-
-        li {
-            margin-bottom: 6px;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 12px;
-        }
-
-        .skill-category {
-            background: var(--light-bg);
-            padding: 12px 15px;
-            border-radius: 6px;
-            border-left: 4px solid var(--accent-color);
-        }
-
-        .skill-category strong {
-            color: var(--primary-color);
-            display: block;
-            margin-bottom: 4px;
-        }
-
-        .certificates-list {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .cert-item {
-            background: var(--light-bg);
-            padding: 10px 15px;
-            border-radius: 6px;
-            flex: 1;
-            min-width: 200px;
-        }
-
-        .cert-item strong {
-            color: var(--primary-color);
-            display: block;
-        }
-
-        @media (max-width: 600px) {
-            .container {
-                padding: 20px;
+        @media print {
+            .no-print {
+                display: none !important;
             }
-            .job-header, .proof-header, .education-header {
-                flex-direction: column;
+            body {
+                background: white !important;
+                color: black !important;
             }
-            .date {
-                margin-top: 2px;
+            .portfolio-card {
+                box-shadow: none !important;
+                border: 1px solid #e2e8f0 !important;
             }
         }
     </style>
 </head>
-<body>
 
-<div class="container">
-    <header>
-        <h1>Ethan Hopkins</h1>
-        <div class="title">Software Engineer</div>
-        <div class="contact-info">
-            <span>ethanthopkins+work@gmail.com</span>
-            <span>(307) 228-0234</span>
-            <span>New York, New York</span>
-            <span><a href="https://linkedin.com/in/ethanthopkins" target="_blank">linkedin.com/in/ethanthopkins</a></span>
-            <span><a href="https://github.com/ethanthopkins" target="_blank">github.com/ethanthopkins</a></span>
+<body class="bg-slate-50/70 text-slate-800 min-h-screen antialiased selection:bg-sky-100 selection:text-sky-900 transition-colors duration-300">
+
+    <!-- Navigation Bar -->
+    <header class="no-print sticky top-0 z-50 backdrop-blur-lg bg-white/80 border-b border-slate-200/80 px-4 lg:px-8 py-3.5">
+        <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            
+            <!-- Portfolio Identifier -->
+            <div class="flex items-center space-x-3">
+                <a href="index.html" class="flex items-center space-x-3 group">
+                    <div class="w-9 h-9 rounded-xl bg-sky-50 border border-sky-200/80 flex items-center justify-center font-semibold text-sky-700 text-xs shadow-sm group-hover:bg-sky-100 transition-colors">
+                        EH
+                    </div>
+                    <div>
+                        <h1 class="text-sm font-semibold tracking-tight text-slate-900">Ethan Hopkins</h1>
+                        <p class="text-xs text-slate-500">Software Engineer Portfolio</p>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Inter-page Navigation Tabs -->
+            <nav class="flex items-center bg-slate-100/80 p-1 rounded-xl border border-slate-200/60 text-xs font-medium overflow-x-auto max-w-full">
+                <a href="index.html" class="px-3.5 py-1.5 rounded-lg text-slate-900 bg-white shadow-sm font-semibold flex items-center gap-1.5 whitespace-nowrap">
+                    <span class="w-2 h-2 rounded-full bg-slate-800 inline-block"></span>
+                    Overview
+                </a>
+                <a href="case-study-1.html" class="px-3.5 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 flex items-center gap-1.5 whitespace-nowrap transition-colors">
+                    <span class="w-2 h-2 rounded-full bg-slate-300 inline-block"></span>
+                    01. Provisioning
+                </a>
+                <a href="case-study-2.html" class="px-3.5 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 flex items-center gap-1.5 whitespace-nowrap transition-colors">
+                    <span class="w-2 h-2 rounded-full bg-slate-300 inline-block"></span>
+                    02. Enterprise Syslog
+                </a>
+                <a href="case-study-3.html" class="px-3.5 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 flex items-center gap-1.5 whitespace-nowrap transition-colors">
+                    <span class="w-2 h-2 rounded-full bg-slate-300 inline-block"></span>
+                    03. Internal Tools
+                </a>
+            </nav>
         </div>
     </header>
 
-    <section>
-        <p>Analytical Software Engineer specializing in high-availability architecture and legacy modernization. Combines a B.S. in Computer Science with 10 years of high-stakes operational leadership to build scalable, mission-critical systems that drive business impact.</p>
-    </section>
+    <!-- Main Content Container -->
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
 
-    <section>
-        <h2>Proofs</h2>
-        <div class="proof">
-            <div class="proof-header">
-                <span class="proof-title">Built and ran a provisioning platform serving hundreds of customers, solo</span>
-                <span class="date">2026</span>
-            </div>
-            <span><a href="https://ethanhopkins.dev/proofs/case-study-1/" target="_blank">ethanhopkins.dev/proofs/case-study-1/</a></span>
-            <ul>
-                <li>Spearheaded the complete overhaul of a legacy electronic provisioning system. Transitioned insecure Perl scripts to a secure Python/Django architecture.</li>
-            </ul>
-        </div>
-    </section>
+        <article class="portfolio-card bg-white border border-slate-200/80 rounded-2xl p-6 sm:p-8 lg:p-10 shadow-sm relative overflow-hidden space-y-10">
 
-    <section>
-        <h2>Work Experience</h2>
-        
-        <div class="job">
-            <div class="job-header">
-                <div>
-                    <span class="job-title">Software Engineer</span> <span class="company">| wyoming.com | Riverton, WY</span>
+            <!-- Profile Header Block -->
+            <div class="space-y-6 border-b border-slate-100 pb-8">
+                <div class="flex flex-col md:flex-row md:items-start justify-between gap-6">
+                    <div class="space-y-2">
+                        <div class="flex items-center gap-2">
+                            <span class="px-3 py-1 rounded-full bg-sky-50 border border-sky-200/80 text-sky-700 font-mono text-xs font-semibold tracking-wide">SOFTWARE ENGINEER</span>
+                        </div>
+                        <h1 class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">Ethan Hopkins</h1>
+                        <p class="text-sm font-medium text-slate-500 flex items-center gap-1.5">
+                            <i data-lucide="map-pin" class="w-4 h-4 text-slate-400"></i> New York, New York
+                        </p>
+                    </div>
+
+                    <!-- Contact Details -->
+                    <div class="flex flex-wrap md:flex-col items-start gap-2.5 text-xs text-slate-600 font-mono">
+                        <a href="mailto:ethanthopkins+work@gmail.com" class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-50 border border-slate-200/80 hover:bg-slate-100 text-slate-700 transition-colors">
+                            <i data-lucide="mail" class="w-3.5 h-3.5 text-sky-600"></i>
+                            ethanthopkins+work@gmail.com
+                        </a>
+                        <a href="tel:3072280234" class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-50 border border-slate-200/80 hover:bg-slate-100 text-slate-700 transition-colors">
+                            <i data-lucide="phone" class="w-3.5 h-3.5 text-sky-600"></i>
+                            (307) 228-0234
+                        </a>
+                        <a href="https://linkedin.com/in/ethanthopkins" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-50 border border-slate-200/80 hover:bg-slate-100 text-slate-700 transition-colors">
+                            <i data-lucide="linkedin" class="w-3.5 h-3.5 text-sky-600"></i>
+                            linkedin.com/in/ethanthopkins
+                        </a>
+                        <a href="https://github.com/ethanthopkins" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-50 border border-slate-200/80 hover:bg-slate-100 text-slate-700 transition-colors">
+                            <i data-lucide="github" class="w-3.5 h-3.5 text-sky-600"></i>
+                            github.com/ethanthopkins
+                        </a>
+                    </div>
                 </div>
-                <div class="date">Dec 2025-Jun 2026</div>
-            </div>
-            <ul>
-                <li>Core Infrastructure & Observability: Modernized legacy ISP systems into a Django/Python API framework, deploying a high-availability MariaDB cluster and an enterprise Grafana/Loki/Ansible stack with zero downtime for mission-critical VoIP services.</li>
-                <li>DevOps & Engineering Leadership: Established automated CI/CD pipelines via GitHub Actions, unified internal toolchains using Celery/Redis, and mentored engineering teams on SQL optimization and AI-assisted workflows.</li>
-            </ul>
-        </div>
 
-        <div class="job">
-            <div class="job-header">
-                <div>
-                    <span class="job-title">Retail Manager</span> <span class="company">| Walmart Wyoming (Multiple Cities)</span>
+                <!-- Professional Summary -->
+                <p class="text-slate-700 text-sm sm:text-base leading-relaxed font-normal bg-slate-50/60 p-5 rounded-2xl border border-slate-200/60">
+                    Analytical Software Engineer specializing in high-availability architecture and legacy modernization. Combines a B.S. in Computer Science with 10 years of high-stakes operational leadership to build scalable, mission-critical systems that drive business impact.
+                </p>
+            </div>
+
+            <!-- Proofs / Technical Case Studies -->
+            <section class="space-y-5">
+                <div class="flex items-center justify-between">
+                    <h2 class="text-xs font-mono uppercase tracking-widest text-sky-700 font-semibold flex items-center gap-2">
+                        <i data-lucide="folder-git-2" class="w-4 h-4 text-sky-600"></i> Technical Case Studies & Proofs
+                    </h2>
                 </div>
-                <div class="date">Oct 2017-Nov 2025</div>
-            </div>
-            <ul>
-                <li>Large-Scale Operations: Directed a $130M+ revenue facility and 350+ associates, leveraging cross-functional leadership and crisis management to drive over $300k in annual financial impact.</li>
-                <li>Technical Innovation: Engineered regional VBA automation tools and a custom MS Access security database, bridging corporate technical requirements with ground-level operations and training 300+ staff.</li>
-            </ul>
-        </div>
-    </section>
 
-    <section>
-        <h2>Core Skills</h2>
-        <div class="skills-grid">
-            <div class="skill-category">
-                <strong>Languages</strong>
-                Python, Java, SQL, Ansible, HTML, CSS, JavaScript, VBA, GML
-            </div>
-            <div class="skill-category">
-                <strong>Databases</strong>
-                MySQL, MariaDB, PostgreSQL, Microsoft Access
-            </div>
-            <div class="skill-category">
-                <strong>Frameworks</strong>
-                Django, Spring Boot, Angular, Node.js, Celery, PyTorch, Scikit-learn, NumPy, Pandas, Matplotlib
-            </div>
-            <div class="skill-category">
-                <strong>AI Coding</strong>
-                GitHub Copilot, Gemini, Claude Code
-            </div>
-            <div class="skill-category">
-                <strong>Tools & DevOps</strong>
-                Git, GitHub, GitLab, Docker, VS Code, IntelliJ IDEA, Unity, GameMaker Studio, Google Apps, Prometheus, Agile
-            </div>
-            <div class="skill-category">
-                <strong>Soft Skills</strong>
-                Resourceful, Effective communication
-            </div>
-        </div>
-    </section>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+                    
+                    <!-- Case Study 01 Card -->
+                    <a href="case-study-1.html" class="group bg-white p-6 rounded-xl border border-slate-200/80 hover:border-sky-300 hover:shadow-md transition-all flex flex-col justify-between space-y-4">
+                        <div class="space-y-2.5">
+                            <div class="flex items-center justify-between">
+                                <span class="px-2.5 py-0.5 rounded bg-sky-50 border border-sky-200 text-sky-700 font-mono text-[11px] font-semibold">2026</span>
+                                <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-400 group-hover:text-sky-600 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all"></i>
+                            </div>
+                            <h3 class="text-sm font-semibold text-slate-900 group-hover:text-sky-700 transition-colors">
+                                Electronic Provisioning Migration
+                            </h3>
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                Built and ran a provisioning platform serving hundreds of customers, solo. Spearheaded the complete overhaul of a legacy system, transitioning insecure Perl scripts to a secure Python/Django architecture.
+                            </p>
+                        </div>
+                        <div class="pt-2 border-t border-slate-100 flex items-center justify-between text-[11px] font-mono text-slate-500">
+                            <span>01. Provisioning</span>
+                            <span class="text-sky-600 font-medium">Read Case Study &rarr;</span>
+                        </div>
+                    </a>
 
-    <section>
-        <h2>Education</h2>
-        
-        <div class="education-item">
-            <div class="education-header">
-                <div>
-                    <span class="school-name">Western Governors University</span>
+                    <!-- Case Study 02 Card -->
+                    <a href="case-study-2.html" class="group bg-white p-6 rounded-xl border border-slate-200/80 hover:border-emerald-300 hover:shadow-md transition-all flex flex-col justify-between space-y-4">
+                        <div class="space-y-2.5">
+                            <div class="flex items-center justify-between">
+                                <span class="px-2.5 py-0.5 rounded bg-emerald-50 border border-emerald-200 text-emerald-700 font-mono text-[11px] font-semibold">2026</span>
+                                <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-400 group-hover:text-emerald-600 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all"></i>
+                            </div>
+                            <h3 class="text-sm font-semibold text-slate-900 group-hover:text-emerald-700 transition-colors">
+                                Enterprise Wide Syslog Implementation
+                            </h3>
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                Designed and deployed a centralized observability stack using Grafana, Loki, and Alloy across a decentralized ISP network to eliminate blind spots and drastically reduce MTTR.
+                            </p>
+                        </div>
+                        <div class="pt-2 border-t border-slate-100 flex items-center justify-between text-[11px] font-mono text-slate-500">
+                            <span>02. Syslog Stack</span>
+                            <span class="text-emerald-600 font-medium">Read Case Study &rarr;</span>
+                        </div>
+                    </a>
+
+                    <!-- Case Study 03 Card -->
+                    <a href="case-study-3.html" class="group bg-white p-6 rounded-xl border border-slate-200/80 hover:border-purple-300 hover:shadow-md transition-all flex flex-col justify-between space-y-4">
+                        <div class="space-y-2.5">
+                            <div class="flex items-center justify-between">
+                                <span class="px-2.5 py-0.5 rounded bg-purple-50 border border-purple-200 text-purple-700 font-mono text-[11px] font-semibold">2026</span>
+                                <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-400 group-hover:text-purple-600 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all"></i>
+                            </div>
+                            <h3 class="text-sm font-semibold text-slate-900 group-hover:text-purple-700 transition-colors">
+                                Internal Tools Enhancement
+                            </h3>
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                Modernized internal tooling suite from legacy ASP.NET/Windows Server to containerized Django/Python with automated report generation and Celery task scheduling.
+                            </p>
+                        </div>
+                        <div class="pt-2 border-t border-slate-100 flex items-center justify-between text-[11px] font-mono text-slate-500">
+                            <span>03. Internal Tools</span>
+                            <span class="text-purple-600 font-medium">Read Case Study &rarr;</span>
+                        </div>
+                    </a>
+
                 </div>
-                <div class="date">Sep 2025</div>
-            </div>
-            <div class="degree">Bachelor of Science Computer Science</div>
-        </div>
+            </section>
 
-        <div class="education-item">
-            <div class="education-header">
-                <div>
-                    <span class="school-name">Purdue University Global</span>
+            <!-- Work Experience Section -->
+            <section class="space-y-5">
+                <h2 class="text-xs font-mono uppercase tracking-widest text-sky-700 font-semibold flex items-center gap-2">
+                    <i data-lucide="briefcase" class="w-4 h-4 text-sky-600"></i> Work Experience
+                </h2>
+
+                <div class="space-y-6">
+                    
+                    <!-- Role 1 -->
+                    <div class="bg-slate-50/60 p-6 rounded-2xl border border-slate-200/60 space-y-4">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-200/60 pb-3">
+                            <div>
+                                <h3 class="text-base font-bold text-slate-900">Software Engineer</h3>
+                                <p class="text-xs font-medium text-sky-700">wyoming.com &bull; Riverton, WY</p>
+                            </div>
+                            <span class="px-3 py-1 bg-white border border-slate-200/80 rounded-full font-mono text-xs text-slate-600 self-start sm:self-auto">Dec 2025 &ndash; Jun 2026</span>
+                        </div>
+
+                        <div class="space-y-3 text-xs text-slate-600 leading-relaxed">
+                            <div class="space-y-1">
+                                <h4 class="font-semibold text-slate-800 flex items-center gap-1.5">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-sky-600"></span> Core Infrastructure & Observability
+                                </h4>
+                                <p class="pl-3">
+                                    Modernized legacy ISP systems into a Django/Python API framework, deploying a high-availability MariaDB cluster and an enterprise Grafana/Loki/Ansible stack with zero downtime for mission-critical VoIP services.
+                                </p>
+                            </div>
+                            <div class="space-y-1">
+                                <h4 class="font-semibold text-slate-800 flex items-center gap-1.5">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-sky-600"></span> DevOps & Engineering Leadership
+                                </h4>
+                                <p class="pl-3">
+                                    Established automated CI/CD pipelines via GitHub Actions, unified internal toolchains using Celery/Redis, and mentored engineering teams on SQL optimization and AI-assisted workflows.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Role 2 -->
+                    <div class="bg-slate-50/60 p-6 rounded-2xl border border-slate-200/60 space-y-4">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-200/60 pb-3">
+                            <div>
+                                <h3 class="text-base font-bold text-slate-900">Retail Manager</h3>
+                                <p class="text-xs font-medium text-slate-600">Walmart Wyoming (Multiple Cities)</p>
+                            </div>
+                            <span class="px-3 py-1 bg-white border border-slate-200/80 rounded-full font-mono text-xs text-slate-600 self-start sm:self-auto">Oct 2017 &ndash; Nov 2025</span>
+                        </div>
+
+                        <div class="space-y-3 text-xs text-slate-600 leading-relaxed">
+                            <div class="space-y-1">
+                                <h4 class="font-semibold text-slate-800 flex items-center gap-1.5">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-slate-400"></span> Large-Scale Operations
+                                </h4>
+                                <p class="pl-3">
+                                    Directed a $130M+ revenue facility and 350+ associates, leveraging cross-functional leadership and crisis management to drive over $300k in annual financial impact.
+                                </p>
+                            </div>
+                            <div class="space-y-1">
+                                <h4 class="font-semibold text-slate-800 flex items-center gap-1.5">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-slate-400"></span> Technical Innovation
+                                </h4>
+                                <p class="pl-3">
+                                    Engineered regional VBA automation tools and a custom MS Access security database, bridging corporate technical requirements with ground-level operations and training 300+ staff.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
-                <div class="date">May 2021</div>
-            </div>
-            <div class="degree">Bachelor of Science Business Administration</div>
-        </div>
-    </section>
+            </section>
 
-    <section>
-        <h2>Certificates</h2>
-        <div class="certificates-list">
-            <div class="cert-item">
-                <strong>Linux Essentials</strong>
-                <span>LPI</span>
+            <!-- Core Skills Taxonomy -->
+            <section class="space-y-5">
+                <h2 class="text-xs font-mono uppercase tracking-widest text-sky-700 font-semibold flex items-center gap-2">
+                    <i data-lucide="code" class="w-4 h-4 text-sky-600"></i> Core Skills
+                </h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-xs">
+                    
+                    <div class="bg-slate-50/60 p-4 rounded-xl border border-slate-200/60 space-y-2">
+                        <span class="text-slate-500 font-medium block font-mono">Languages</span>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-md text-slate-700">Python</span>
+                            <span class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-md text-slate-700">Java</span>
+                            <span class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-md text-slate-700">SQL</span>
+                            <span class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-md text-slate-700">Ansible</span>
+                            <span class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-md text-slate-700">HTML</span>
+                            <span class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-md text-slate-700">CSS</span>
+                            <span class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-md text-slate-700">JavaScript</span>
+                            <span class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-md text-slate-700">VBA</span>
+                            <span class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-md text-slate-700">GML</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-50/60 p-4 rounded-xl border border-slate-200/60 space-y-2">
+                        <span class="text-slate-500 font-medium block font-mono">Frameworks & ML</span>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-md text-slate-700">Django</span>
+                            <span class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-md text-slate-700">Spring Boot</span>
+                            <span class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-md text-slate-700">Angular</span>
+                            <span class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-md text-slate-700">Node.js</span>
+                            <span class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-md text-slate-700">Celery</span>
+                            <span class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-md text-slate-700">PyTorch</span>
+                            <span class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-md text-slate-700">Scikit-learn</span>
+                            <span class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-md text-slate-700">NumPy</span>
+                            <span class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-md text-slate-700">Pandas</span>
+                            <span class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-md text-slate-700">Matplotlib</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-50/60 p-4 rounded-xl border border-slate-200/60 space-y-2">
+                        <span class="text-slate-500 font-medium block font-mono">Databases</span>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-md text-slate-700">MySQL</span>
+                            <span class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-md text-slate-700">MariaDB</span>
+                            <span class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-md text-slate-700">PostgreSQL</span>
+                            <span class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-md text-slate-700">Microsoft Access</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-50/60 p-4 rounded-xl border border-slate-200/60 space-y-2">
+                        <span class="text-slate-500 font-medium block font-mono">Tools & DevOps</span>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-md text-slate-700">Git</span>
+                            <span class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-md text-slate-700">GitHub</span>
+                            <span class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-md text-slate-700">GitLab</span>
+                            <span class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-md text-slate-700">Docker</span>
+                            <span class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-md text-slate-700">VS Code</span>
+                            <span class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-md text-slate-700">IntelliJ IDEA</span>
+                            <span class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-md text-slate-700">Unity</span>
+                            <span class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-md text-slate-700">GameMaker Studio</span>
+                            <span class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-md text-slate-700">Prometheus</span>
+                            <span class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-md text-slate-700">Agile</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-50/60 p-4 rounded-xl border border-slate-200/60 space-y-2">
+                        <span class="text-slate-500 font-medium block font-mono">AI Coding</span>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-md text-slate-700">GitHub Copilot</span>
+                            <span class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-md text-slate-700">Gemini</span>
+                            <span class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-md text-slate-700">Claude Code</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-50/60 p-4 rounded-xl border border-slate-200/60 space-y-2">
+                        <span class="text-slate-500 font-medium block font-mono">Soft Skills</span>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-md text-slate-700">Resourceful</span>
+                            <span class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-md text-slate-700">Effective Communication</span>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- Education & Certificates Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4 border-t border-slate-100">
+                
+                <!-- Education -->
+                <section class="space-y-4">
+                    <h2 class="text-xs font-mono uppercase tracking-widest text-sky-700 font-semibold flex items-center gap-2">
+                        <i data-lucide="graduation-cap" class="w-4 h-4 text-sky-600"></i> Education
+                    </h2>
+
+                    <div class="space-y-3 text-xs">
+                        <div class="p-4 bg-slate-50/60 border border-slate-200/60 rounded-xl space-y-1">
+                            <div class="flex items-center justify-between font-semibold text-slate-900">
+                                <span>Western Governors University</span>
+                                <span class="font-mono text-[11px] text-slate-500">Sep 2025</span>
+                            </div>
+                            <p class="text-slate-600">Bachelor of Science Computer Science</p>
+                        </div>
+
+                        <div class="p-4 bg-slate-50/60 border border-slate-200/60 rounded-xl space-y-1">
+                            <div class="flex items-center justify-between font-semibold text-slate-900">
+                                <span>Purdue University Global</span>
+                                <span class="font-mono text-[11px] text-slate-500">May 2021</span>
+                            </div>
+                            <p class="text-slate-600">Bachelor of Science Business Administration</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Certificates -->
+                <section class="space-y-4">
+                    <h2 class="text-xs font-mono uppercase tracking-widest text-sky-700 font-semibold flex items-center gap-2">
+                        <i data-lucide="award" class="w-4 h-4 text-sky-600"></i> Certifications
+                    </h2>
+
+                    <div class="space-y-3 text-xs">
+                        <div class="p-4 bg-slate-50/60 border border-slate-200/60 rounded-xl flex items-center justify-between">
+                            <div>
+                                <span class="font-semibold text-slate-900 block">Linux Essentials</span>
+                                <span class="text-slate-500">LPI</span>
+                            </div>
+                            <i data-lucide="check-circle" class="w-4 h-4 text-sky-600"></i>
+                        </div>
+
+                        <div class="p-4 bg-slate-50/60 border border-slate-200/60 rounded-xl flex items-center justify-between">
+                            <div>
+                                <span class="font-semibold text-slate-900 block">ITIL Foundation 4</span>
+                                <span class="text-slate-500">AXELOS</span>
+                            </div>
+                            <i data-lucide="check-circle" class="w-4 h-4 text-sky-600"></i>
+                        </div>
+
+                        <div class="p-4 bg-slate-50/60 border border-slate-200/60 rounded-xl flex items-center justify-between">
+                            <div>
+                                <span class="font-semibold text-slate-900 block">Docker Foundations</span>
+                                <span class="text-slate-500">Docker</span>
+                            </div>
+                            <i data-lucide="check-circle" class="w-4 h-4 text-sky-600"></i>
+                        </div>
+                    </div>
+                </section>
+
             </div>
-            <div class="cert-item">
-                <strong>ITIL Foundation 4</strong>
-                <span>AXELOS</span>
-            </div>
-            <div class="cert-item">
-                <strong>Docker Foundations</strong>
-                <span>Docker</span>
+
+        </article>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="no-print border-t border-slate-200/80 bg-white py-6 mt-12 text-center text-xs text-slate-500">
+        <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div>Ethan Hopkins &bull; Software Engineer Portfolio</div>
+            <div class="flex items-center space-x-4">
+                <a href="index.html" class="text-sky-700 font-semibold hover:underline">Overview</a>
+                <a href="case-study-1.html" class="hover:text-slate-900 transition-colors">01. Provisioning</a>
+                <a href="case-study-2.html" class="hover:text-slate-900 transition-colors">02. Syslog</a>
+                <a href="case-study-3.html" class="hover:text-slate-900 transition-colors">03. Internal Tools</a>
             </div>
         </div>
-    </section>
-</div>
+    </footer>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+        });
+    </script>
 </body>
 </html>
