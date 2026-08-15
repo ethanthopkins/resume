@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Study: Internal Tools Enhancement</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#faf5ff',
+                            100: '#f3e8ff',
+                            500: '#a855f7',
+                            600: '#9333ea',
+                            700: '#7e22ce',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        @media print {
+            .no-print {
+                display: none !important;
+            }
+            body {
+                background: white !important;
+                color: black !important;
+            }
+            .case-study-card {
+                box-shadow: none !important;
+                border: 1px solid #e2e8f0 !important;
+            }
+            .print-full-width {
+                max-width: 100% !important;
+                width: 100% !important;
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50/70 text-slate-800 min-h-screen antialiased selection:bg-purple-100 selection:text-purple-900 transition-colors duration-300">
+
+    <!-- Navigation Bar -->
+    <header class="no-print sticky top-0 z-50 backdrop-blur-lg bg-white/80 border-b border-slate-200/80 px-4 lg:px-8 py-3.5">
+        <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            
+            <!-- Portfolio Identifier -->
+            <div class="flex items-center space-x-3">
+                <a href="case-study-3.html" class="flex items-center space-x-3 group">
+                    <div class="w-9 h-9 rounded-xl bg-purple-50 border border-purple-200/80 flex items-center justify-center font-semibold text-purple-700 text-xs shadow-sm group-hover:bg-purple-100 transition-colors">
+                        CS
+                    </div>
+                    <div>
+                        <h1 class="text-sm font-semibold tracking-tight text-slate-900">Portfolio</h1>
+                        <p class="text-xs text-slate-500">Technical Case Studies</p>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Inter-page Navigation Tabs -->
+            <nav class="flex items-center bg-slate-100/80 p-1 rounded-xl border border-slate-200/60 text-xs font-medium overflow-x-auto max-w-full">
+                <a href="case-study-1.html" class="px-3.5 py-1.5 rounded-lg text-slate-900 bg-white shadow-sm font-semibold flex items-center gap-1.5 whitespace-nowrap">
+                    <span class="w-2 h-2 rounded-full bg-slate-800 inline-block"></span>
+                    01. Electronic Provisioning
+                </a>
+                <a href="case-study-2.html" class="px-3.5 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 flex items-center gap-1.5 whitespace-nowrap transition-colors">
+                    <span class="w-2 h-2 rounded-full bg-slate-300 inline-block"></span>
+                    02. Enterprise Syslog
+                </a>
+                <a href="case-study-3.html" class="px-3.5 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 flex items-center gap-1.5 whitespace-nowrap transition-colors">
+                    <span class="w-2 h-2 rounded-full bg-slate-300 inline-block"></span>
+                    03. Internal Tools
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+
+        <article class="case-study-card bg-white border border-slate-200/80 rounded-2xl p-6 sm:p-8 lg:p-10 shadow-sm relative overflow-hidden space-y-10">
+
+            <!-- Header Title Block -->
+            <div class="space-y-4 border-b border-slate-100 pb-8">
+                <div class="flex flex-wrap items-center gap-2">
+                    <span class="px-3 py-1 rounded-full bg-purple-50 border border-purple-200/80 text-purple-700 font-mono text-xs font-semibold tracking-wide">CASE STUDY 03</span>
+                    <span class="px-3 py-1 rounded-full bg-slate-100 border border-slate-200/60 text-slate-600 font-mono text-xs">Role: Software Engineer</span>
+                </div>
+                <h1 class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">Case Study: Internal Tools Enhancement</h1>
+            </div>
+
+            <section class="space-y-5">
+                <h2 class="text-xs font-mono uppercase tracking-widest text-purple-700 font-semibold flex items-center gap-2">
+                    <i data-lucide="cpu" class="w-4 h-4 text-purple-600"></i> Tech Stack
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-xs">
+                    <div class="bg-slate-50/60 p-4 rounded-xl border border-slate-200/60 space-y-2">
+                        <span class="text-slate-500 font-medium block font-mono">Languages</span>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-md text-slate-700">Python</span>
+                            <span class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-md text-slate-700">YAML</span>
+                            <span class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-md text-slate-700">HTML</span>
+                            <span class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-md text-slate-700">CSS</span>
+                            <span class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-md text-slate-700">JavaScript</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-50/60 p-4 rounded-xl border border-slate-200/60 space-y-2">
+                        <span class="text-slate-500 font-medium block font-mono">Frameworks</span>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-md text-slate-700">Django</span>
+                            <span class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-md text-slate-700">Bootstrap</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-50/60 p-4 rounded-xl border border-slate-200/60 space-y-2">
+                        <span class="text-slate-500 font-medium block font-mono">Databases</span>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-md text-slate-700">PostgreSQL</span>
+                            <span class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-md text-slate-700">MariaDB</span>
+                            <span class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-md text-slate-700">Microsoft SQL Server</span>
+                            <span class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-md text-slate-700">Redis</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-50/60 p-4 rounded-xl border border-slate-200/60 space-y-2">
+                        <span class="text-slate-500 font-medium block font-mono">Libraries</span>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-md text-slate-700">Celery</span>
+                            <span class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-md text-slate-700">django-celery-beat</span>
+                            <span class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-md text-slate-700">requests</span>
+                            <span class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-md text-slate-700">Django Prometheus</span>
+                            <span class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-md text-slate-700">weasyprint</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-50/60 p-4 rounded-xl border border-slate-200/60 space-y-2">
+                        <span class="text-slate-500 font-medium block font-mono">Testing</span>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-md text-slate-700">pytest (Django Testing, Mocking)</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-50/60 p-4 rounded-xl border border-slate-200/60 space-y-2">
+                        <span class="text-slate-500 font-medium block font-mono">Developer Tools</span>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-md text-slate-700">VS Code</span>
+                            <span class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-md text-slate-700">Git</span>
+                            <span class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-md text-slate-700">Docker</span>
+                            <span class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-md text-slate-700">Sphinx</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-50/60 p-4 rounded-xl border border-slate-200/60 space-y-2 md:col-span-2 lg:col-span-2">
+                        <span class="text-slate-500 font-medium block font-mono">Infrastructure & DevOps</span>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-md text-slate-700">GitHub Actions (CI/CD)</span>
+                            <span class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-md text-slate-700">Ansible</span>
+                            <span class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-md text-slate-700">Nginx</span>
+                            <span class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-md text-slate-700">Gunicorn</span>
+                            <span class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-md text-slate-700">Bitwarden API (secrets management)</span>
+                            <span class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-md text-slate-700">Debian</span>
+                            <span class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-md text-slate-700">Proxmox</span>
+                            <span class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-md text-slate-700">Linux Cron</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-50/60 p-4 rounded-xl border border-slate-200/60 space-y-2">
+                        <span class="text-slate-500 font-medium block font-mono">Monitoring & Observability</span>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-md text-slate-700">Grafana</span>
+                            <span class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-md text-slate-700">Grafana Alloy</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-50/60 p-4 rounded-xl border border-slate-200/60 space-y-2">
+                        <span class="text-slate-500 font-medium block font-mono">Methodologies</span>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-md text-slate-700">Agile</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="space-y-3 bg-purple-50/50 p-6 sm:p-8 rounded-2xl border border-purple-100">
+                <h2 class="text-xs font-mono uppercase tracking-widest text-purple-700 font-semibold flex items-center gap-2">
+                    <i data-lucide="file-text" class="w-4 h-4 text-purple-600"></i> Executive Summary
+                </h2>
+                <p class="text-slate-700 text-sm sm:text-base leading-relaxed font-normal">
+                    Modernized the company's internal tooling suite by migrating from a vulnerable legacy ASP.NET/Windows environment to a secure, containerized Django/Python architecture. Implemented deterministic CI/CD workflows and redesigned the frontend to dramatically improve user navigation and internal operational efficiency.
+                </p>
+            </section>
+
+            <section class="space-y-5">
+                <h2 class="text-xs font-mono uppercase tracking-widest text-rose-600 font-semibold flex items-center gap-2">
+                    <i data-lucide="alert-triangle" class="w-4 h-4 text-rose-500"></i> Challenges
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <div class="bg-white p-6 rounded-xl border border-slate-200/80 space-y-2 shadow-xs">
+                        <h3 class="text-sm font-semibold text-slate-900 flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-rose-500"></span> Technical Debt
+                        </h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Existing tool site was built with legacy asp.NET and iis on a legacy Windows Server. Many secrets were stored in plain-text and data was sent insecurely as URL query parameters or within a packet over HTTP.
+                        </p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl border border-slate-200/80 space-y-2 shadow-xs">
+                        <h3 class="text-sm font-semibold text-slate-900 flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-rose-500"></span> Decoupled a Monolithic Server
+                        </h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            The legacy Windows server tightly coupled the tool site with assorted Cron jobs, standalone scripts, and local databases. Successfully untangled these mixed concerns into a clean, modular architecture during the migration.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="space-y-5">
+                <h2 class="text-xs font-mono uppercase tracking-widest text-purple-700 font-semibold flex items-center gap-2">
+                    <i data-lucide="layers" class="w-4 h-4 text-purple-600"></i> Architecture & Execution
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+                    <div class="bg-slate-50/60 p-5 rounded-xl border border-slate-200/60 space-y-2">
+                        <h3 class="font-semibold text-slate-900">Asynchronous Processing</h3>
+                        <p class="text-slate-600 leading-relaxed">
+                            Architected a centralized hub using Celery & Redis to manage high-volume, asynchronous task processing, ensuring real-time provisioning updates without impacting front-end stability. Also uses built-in retry logic for stable operations.
+                        </p>
+                    </div>
+
+                    <div class="bg-slate-50/60 p-5 rounded-xl border border-slate-200/60 space-y-2">
+                        <h3 class="font-semibold text-slate-900">Scheduled Tasks</h3>
+                        <p class="text-slate-600 leading-relaxed">
+                            Utilized Celery Beat to replace legacy Cron to schedule tasks enabling more accessible maintenance on tasks.
+                        </p>
+                    </div>
+
+                    <div class="bg-slate-50/60 p-5 rounded-xl border border-slate-200/60 space-y-2">
+                        <h3 class="font-semibold text-slate-900">Run-Time Security</h3>
+                        <p class="text-slate-600 leading-relaxed">
+                            Deployed on supported Debian-based VM servers. Secrets management via the Bitwarden API and UUIDs saved as environment variables. All new operations performed within the Django ORM framework.
+                        </p>
+                    </div>
+
+                    <div class="bg-slate-50/60 p-5 rounded-xl border border-slate-200/60 space-y-2">
+                        <h3 class="font-semibold text-slate-900">Pro-Active Security</h3>
+                        <p class="text-slate-600 leading-relaxed">
+                            GitHub Actions CI/CD uses Trivy and dependency scanning so CVEs can be easily corrected and monitored. A suite of fast & safe unit tests run on CI/CD before merges are allowed into main.
+                        </p>
+                    </div>
+
+                    <div class="bg-slate-50/60 p-5 rounded-xl border border-slate-200/60 space-y-2">
+                        <h3 class="font-semibold text-slate-900">Deterministic Deployments</h3>
+                        <p class="text-slate-600 leading-relaxed">
+                            Used a modern CI/CD, containerization workflow with GitHub Actions to rebuild containers on deployment and allow easy rollbacks in case of breakage. This was a major upgrade from the existing Git repo pull and systemd restart strategy.
+                        </p>
+                    </div>
+
+                    <div class="bg-slate-50/60 p-5 rounded-xl border border-slate-200/60 space-y-2">
+                        <h3 class="font-semibold text-slate-900">Observability & Monitoring</h3>
+                        <p class="text-slate-600 leading-relaxed">
+                            Integrated Prometheus and Grafana Alloy to establish comprehensive metrics and centralized logging eliminating the operational blind spots present in the legacy system.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="space-y-5 pt-4 border-t border-slate-100">
+                <h2 class="text-xs font-mono uppercase tracking-widest text-emerald-700 font-semibold flex items-center gap-2">
+                    <i data-lucide="trending-up" class="w-4 h-4 text-emerald-600"></i> The Business Impact
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5 text-xs">
+                    <div class="p-5 bg-emerald-50/40 border border-emerald-100 rounded-xl space-y-2">
+                        <div class="font-semibold text-emerald-800 flex items-center gap-2">
+                            <i data-lucide="book-open" class="w-4 h-4 text-emerald-600"></i> Documentation & Maintainability
+                        </div>
+                        <p class="text-slate-600 leading-relaxed">
+                            Utilized Sphinx and GitHub Actions to generate and maintain (on-demand or upon releases) robust internal documentation, ensuring the new architecture is easily maintainable and accelerating onboarding for the engineering team.
+                        </p>
+                    </div>
+
+                    <div class="p-5 bg-emerald-50/40 border border-emerald-100 rounded-xl space-y-2">
+                        <div class="font-semibold text-emerald-800 flex items-center gap-2">
+                            <i data-lucide="zap" class="w-4 h-4 text-emerald-600"></i> Feature Rich
+                        </div>
+                        <p class="text-slate-600 leading-relaxed">
+                            Quickly responded to evolving needs within the company and implemented features such as external notifications for outages and report automation which saves on labor costs.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+        </article>
+
+    </main>
+
+    <footer class="no-print border-t border-slate-200/80 bg-white py-6 mt-12 text-center text-xs text-slate-500">
+        <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div>Software Engineering Portfolio Case Studies</div>
+            <div class="flex items-center space-x-4">
+                <a href="case-study-1.html" class="text-sky-700 font-semibold hover:underline">01. Provisioning</a>
+                <a href="case-study-2.html" class="hover:text-slate-900 transition-colors">02. Syslog</a>
+                <a href="case-study-3.html" class="hover:text-slate-900 transition-colors">03. Internal Tools</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Study: Enterprise Wide Syslog Implementation</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        @media print {
+            .no-print {
+                display: none !important;
+            }
+            body {
+                background: white !important;
+                color: black !important;
+            }
+            .case-study-card {
+                box-shadow: none !important;
+                border: 1px solid #e2e8f0 !important;
+            }
+            .print-full-width {
+                max-width: 100% !important;
+                width: 100% !important;
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50/70 text-slate-800 min-h-screen antialiased selection:bg-emerald-100 selection:text-emerald-900 transition-colors duration-300">
+
+    <!-- Navigation Bar -->
+    <header class="no-print sticky top-0 z-50 backdrop-blur-lg bg-white/80 border-b border-slate-200/80 px-4 lg:px-8 py-3.5">
+        <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            
+            <!-- Portfolio Identifier -->
+            <div class="flex items-center space-x-3">
+                <a href="case-study-2.html" class="flex items-center space-x-3 group">
+                    <div class="w-9 h-9 rounded-xl bg-emerald-50 border border-emerald-200/80 flex items-center justify-center font-semibold text-emerald-700 text-xs shadow-sm group-hover:bg-emerald-100 transition-colors">
+                        CS
+                    </div>
+                    <div>
+                        <h1 class="text-sm font-semibold tracking-tight text-slate-900">Portfolio</h1>
+                        <p class="text-xs text-slate-500">Technical Case Studies</p>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Inter-page Navigation Tabs -->
+            <nav class="flex items-center bg-slate-100/80 p-1 rounded-xl border border-slate-200/60 text-xs font-medium overflow-x-auto max-w-full">
+                <a href="case-study-1.html" class="px-3.5 py-1.5 rounded-lg text-slate-900 bg-white shadow-sm font-semibold flex items-center gap-1.5 whitespace-nowrap">
+                    <span class="w-2 h-2 rounded-full bg-slate-800 inline-block"></span>
+                    01. Electronic Provisioning
+                </a>
+                <a href="case-study-2.html" class="px-3.5 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 flex items-center gap-1.5 whitespace-nowrap transition-colors">
+                    <span class="w-2 h-2 rounded-full bg-slate-300 inline-block"></span>
+                    02. Enterprise Syslog
+                </a>
+                <a href="case-study-3.html" class="px-3.5 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 flex items-center gap-1.5 whitespace-nowrap transition-colors">
+                    <span class="w-2 h-2 rounded-full bg-slate-300 inline-block"></span>
+                    03. Internal Tools
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+
+        <article class="case-study-card bg-white border border-slate-200/80 rounded-2xl p-6 sm:p-8 lg:p-10 shadow-sm relative overflow-hidden space-y-10">
+
+            <!-- Header Title Block -->
+            <div class="space-y-4 border-b border-slate-100 pb-8">
+                <div class="flex flex-wrap items-center gap-2">
+                    <span class="px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200/80 text-emerald-700 font-mono text-xs font-semibold tracking-wide">CASE STUDY 02</span>
+                    <span class="px-3 py-1 rounded-full bg-slate-100 border border-slate-200/60 text-slate-600 font-mono text-xs">Role: Software Engineer</span>
+                </div>
+                <h1 class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">Case Study: Enterprise Wide Syslog Implementation</h1>
+            </div>
+
+            <section class="space-y-5">
+                <h2 class="text-xs font-mono uppercase tracking-widest text-emerald-700 font-semibold flex items-center gap-2">
+                    <i data-lucide="cpu" class="w-4 h-4 text-emerald-600"></i> Tech Stack
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-xs">
+                    <div class="bg-slate-50/60 p-4 rounded-xl border border-slate-200/60 space-y-2">
+                        <span class="text-slate-500 font-medium block font-mono">Languages</span>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-md text-slate-700">Python</span>
+                            <span class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-md text-slate-700">YAML</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-50/60 p-4 rounded-xl border border-slate-200/60 space-y-2">
+                        <span class="text-slate-500 font-medium block font-mono">Security & Auth</span>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-md text-slate-700">LDAP</span>
+                            <span class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-md text-slate-700">RBAC (Role-Based Access Control)</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-50/60 p-4 rounded-xl border border-slate-200/60 space-y-2">
+                        <span class="text-slate-500 font-medium block font-mono">Developer Tools</span>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-md text-slate-700">VS Code</span>
+                            <span class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-md text-slate-700">Git</span>
+                            <span class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-md text-slate-700">Docker</span>
+                            <span class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-md text-slate-700">Sphinx</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-50/60 p-4 rounded-xl border border-slate-200/60 space-y-2 md:col-span-2">
+                        <span class="text-slate-500 font-medium block font-mono">Infrastructure & DevOps</span>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-md text-slate-700">Ansible</span>
+                            <span class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-md text-slate-700">Debian</span>
+                            <span class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-md text-slate-700">Proxmox</span>
+                            <span class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-md text-slate-700">CI/CD (Ansible Lint and Syntax Checking)</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-50/60 p-4 rounded-xl border border-slate-200/60 space-y-2 md:col-span-2 lg:col-span-1">
+                        <span class="text-slate-500 font-medium block font-mono">Monitoring & Observability</span>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-md text-slate-700">Grafana</span>
+                            <span class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-md text-slate-700">Grafana Loki</span>
+                            <span class="px-2.5 py-1 bg-white border border-slate-200/80 rounded-md text-slate-700">Grafana Alloy</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="space-y-3 bg-emerald-50/50 p-6 sm:p-8 rounded-2xl border border-emerald-100">
+                <h2 class="text-xs font-mono uppercase tracking-widest text-emerald-700 font-semibold flex items-center gap-2">
+                    <i data-lucide="file-text" class="w-4 h-4 text-emerald-600"></i> Executive Summary
+                </h2>
+                <p class="text-slate-700 text-sm sm:text-base leading-relaxed font-normal">
+                    Spearheaded the design and deployment of a centralized enterprise observability stack to resolve fragmented logging across a decentralized ISP infrastructure. By transitioning the organization from manual log-diving to real-time, automated data streams, the project drastically reduced Mean Time to Resolution (MTTR) and established a proactive standard for network management.
+                </p>
+            </section>
+
+            <section class="space-y-5">
+                <h2 class="text-xs font-mono uppercase tracking-widest text-rose-600 font-semibold flex items-center gap-2">
+                    <i data-lucide="alert-triangle" class="w-4 h-4 text-rose-500"></i> Challenges
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <div class="bg-white p-6 rounded-xl border border-slate-200/80 space-y-2 shadow-xs">
+                        <h3 class="text-sm font-semibold text-slate-900 flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-rose-500"></span> Fragmented Visibility
+                        </h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Decentralized infrastructure led to severe visibility gaps, especially in high-latency environments, making system health difficult to monitor.
+                        </p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl border border-slate-200/80 space-y-2 shadow-xs">
+                        <h3 class="text-sm font-semibold text-slate-900 flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-rose-500"></span> Reactive Troubleshooting
+                        </h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Relying on manual log-diving across isolated servers caused high MTTR and delayed responses to critical network incidents.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="space-y-5">
+                <h2 class="text-xs font-mono uppercase tracking-widest text-emerald-700 font-semibold flex items-center gap-2">
+                    <i data-lucide="layers" class="w-4 h-4 text-emerald-600"></i> Architecture & Execution
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+                    <div class="bg-slate-50/60 p-5 rounded-xl border border-slate-200/60 space-y-2">
+                        <h3 class="font-semibold text-slate-900">End-to-End Observability</h3>
+                        <p class="text-slate-600 leading-relaxed">
+                            Architected and deployed a robust monitoring ecosystem utilizing Grafana, Loki, and Grafana Alloy to aggregate real-time data streams into a single, unified "source of truth."
+                        </p>
+                    </div>
+
+                    <div class="bg-slate-50/60 p-5 rounded-xl border border-slate-200/60 space-y-2">
+                        <h3 class="font-semibold text-slate-900">Automated Provisioning</h3>
+                        <p class="text-slate-600 leading-relaxed">
+                            Utilized Ansible to automate the entire infrastructure deployment across multiple Debian-based environments, ensuring consistent, repeatable, and scalable rollouts.
+                        </p>
+                    </div>
+
+                    <div class="bg-slate-50/60 p-5 rounded-xl border border-slate-200/60 space-y-2">
+                        <h3 class="font-semibold text-slate-900">Security & Access Control</h3>
+                        <p class="text-slate-600 leading-relaxed">
+                            Integrated LDAP for secure, role-based access control (RBAC), establishing strict auditing pipelines and custom dashboards for real-time threat detection.
+                        </p>
+                    </div>
+
+                    <div class="bg-slate-50/60 p-5 rounded-xl border border-slate-200/60 space-y-2">
+                        <h3 class="font-semibold text-slate-900">Advanced Querying & Optimization</h3>
+                        <p class="text-slate-600 leading-relaxed">
+                            Leveraged advanced query logic to isolate intermittent hardware failures and optimized log retention policies to balance storage costs with strict compliance requirements.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="space-y-5 pt-4 border-t border-slate-100">
+                <h2 class="text-xs font-mono uppercase tracking-widest text-emerald-700 font-semibold flex items-center gap-2">
+                    <i data-lucide="trending-up" class="w-4 h-4 text-emerald-600"></i> The Business Impact
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-5 text-xs">
+                    <div class="p-5 bg-emerald-50/40 border border-emerald-100 rounded-xl space-y-2">
+                        <div class="font-semibold text-emerald-800 flex items-center gap-2">
+                            <i data-lucide="clock" class="w-4 h-4 text-emerald-600"></i> Drastic MTTR Reduction
+                        </div>
+                        <p class="text-slate-600 leading-relaxed">
+                            Eliminated manual log-diving, empowering the NOC and engineering teams with the real-time insights needed to resolve critical network incidents exponentially faster.
+                        </p>
+                    </div>
+
+                    <div class="p-5 bg-emerald-50/40 border border-emerald-100 rounded-xl space-y-2">
+                        <div class="font-semibold text-emerald-800 flex items-center gap-2">
+                            <i data-lucide="award" class="w-4 h-4 text-emerald-600"></i> Executive Buy-In & Leadership
+                        </div>
+                        <p class="text-slate-600 leading-relaxed">
+                            Successfully pitched the architectural design to the CEO and Senior Engineer, securing approval and defining new company-wide standards for system monitoring.
+                        </p>
+                    </div>
+
+                    <div class="p-5 bg-emerald-50/40 border border-emerald-100 rounded-xl space-y-2">
+                        <div class="font-semibold text-emerald-800 flex items-center gap-2">
+                            <i data-lucide="users" class="w-4 h-4 text-emerald-600"></i> Team Mentorship
+                        </div>
+                        <p class="text-slate-600 leading-relaxed">
+                            Mentored the engineering and NOC teams on dashboard utilization and proactive troubleshooting, elevating the overall operational maturity of the organization.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+        </article>
+
+    </main>
+
+    <footer class="no-print border-t border-slate-200/80 bg-white py-6 mt-12 text-center text-xs text-slate-500">
+        <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div>Software Engineering Portfolio Case Studies</div>
+            <div class="flex items-center space-x-4">
+                <a href="case-study-1.html" class="text-sky-700 font-semibold hover:underline">01. Provisioning</a>
+                <a href="case-study-2.html" class="hover:text-slate-900 transition-colors">02. Syslog</a>
+                <a href="case-study-3.html" class="hover:text-slate-900 transition-colors">03. Internal Tools</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+        });
+    </script>
+</body>
+</html>
