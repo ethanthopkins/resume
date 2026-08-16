@@ -247,21 +247,14 @@
                 </h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
                     <div class="bg-slate-50/60 p-5 rounded-xl border border-slate-200/60 space-y-2">
-                        <h3 class="font-semibold text-slate-900">Asynchronous Processing</h3>
-                        <p class="text-slate-600 leading-relaxed">
-                            Architected a centralized hub using Celery & Redis to manage high-volume, asynchronous task processing, ensuring real-time provisioning updates without impacting front-end stability. Also uses built-in retry logic for stable operations.
-                        </p>
-                    </div>
-
-                    <div class="bg-slate-50/60 p-5 rounded-xl border border-slate-200/60 space-y-2">
-                        <h3 class="font-semibold text-slate-900">Run-Time Security</h3>
+                        <h3 class="font-semibold text-slate-900">Security by Design</h3>
                         <p class="text-slate-600 leading-relaxed">
                             Deployed on supported Debian-based VM servers. Secrets management via the Bitwarden API and UUIDs saved as environment variables. All operations performed within the Django ORM framework.
                         </p>
                     </div>
 
                     <div class="bg-slate-50/60 p-5 rounded-xl border border-slate-200/60 space-y-2">
-                        <h3 class="font-semibold text-slate-900">Pro-Active Security</h3>
+                        <h3 class="font-semibold text-slate-900">DevOps & CI/CD</h3>
                         <p class="text-slate-600 leading-relaxed">
                             GitHub Actions CI/CD uses Trivy and dependency scanning so CVEs can be easily corrected and monitored. A full-coverage suite of fast & safe unit tests run on CI/CD before merges are allowed into main.
                         </p>
